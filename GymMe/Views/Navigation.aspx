@@ -16,7 +16,7 @@
 
             <asp:Panel ID="AdminChoice" runat="server" Visible="false">
                 <asp:LinkButton ID="LinkButtonHome" runat="server" OnClick="LinkButtonHome_Click">Home</asp:LinkButton>
-                <asp:Label ID="Label6" runat="server" Text="Management Suplement"></asp:Label>
+                <asp:LinkButton ID="LinkButtonManageSup" runat="server" OnClick="LinkButtonManageSup_Click">Manage Supplement</asp:LinkButton>
                 <asp:Label ID="Label7" runat="server" Text="Order Queue"></asp:Label> 
                 <asp:Label ID="Label9" runat="server" Text="Transaction Report"></asp:Label>
             </asp:Panel>
