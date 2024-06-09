@@ -92,6 +92,7 @@
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\InsertSupplement.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\ManageSupplement.aspx" />
     <Content Include="Views\Navigation.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageSupplement.aspx.cs">
+      <DependentUpon>ManageSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageSupplement.aspx.designer.cs">
+      <DependentUpon>ManageSupplement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Navigation.aspx.cs">
       <DependentUpon>Navigation.aspx</DependentUpon>
