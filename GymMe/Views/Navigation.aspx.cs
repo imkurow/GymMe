@@ -51,5 +51,10 @@ namespace GymMe.Views
         {
             Response.Redirect("profile.aspx");
         }
+
+        protected void LinkButtonManageSup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManageSupplement.aspx");
+        }
     }
 }

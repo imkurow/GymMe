@@ -82,8 +82,13 @@ namespace GymMe.Views
                 int TypeId = ProductRepository.GetTypeId(type);
                 MsSuplement sup = ProductFactory.CreateSupplement(suppName, price, suppExpDate, TypeId);
                 ProductRepository.InsertSupplement(sup);
-                Response.Redirect("Navigation.aspx");
+                Response.Redirect("ManageSupplement.aspx");
             }
+        }
+
+        protected void LinkButtonBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ManageSupplement.aspx");
         }
     }
 }

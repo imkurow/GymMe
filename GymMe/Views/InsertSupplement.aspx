@@ -12,6 +12,9 @@
             <asp:LinkButton ID="LinkButtonNav" runat="server" OnClick="LinkButtonNav_Click">Nav</asp:LinkButton>
         </div>
         <div>
+            <asp:LinkButton ID="LinkButtonBack" runat="server" OnClick="LinkButtonBack_Click">Back</asp:LinkButton>
+        </div>
+        <div>
             <asp:Label ID="LabelSupplement" runat="server" Text="Supplement Name: "></asp:Label>
             <asp:TextBox ID="TextBoxSuplement" runat="server"></asp:TextBox>
         </div>
