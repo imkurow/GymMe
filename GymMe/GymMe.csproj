@@ -90,6 +90,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Home.aspx" />
+    <Content Include="Views\InsertSupplement.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\Navigation.aspx" />
     <Content Include="Views\Profile.aspx" />
@@ -97,7 +98,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Factories\ProductFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
@@ -142,6 +145,13 @@
     </Compile>
     <Compile Include="Views\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertSupplement.aspx.cs">
+      <DependentUpon>InsertSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertSupplement.aspx.designer.cs">
+      <DependentUpon>InsertSupplement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
