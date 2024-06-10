@@ -16,7 +16,7 @@
                     <asp:BoundField DataField="SuplementName" HeaderText="Supplement Name" SortExpression="SuplementName" />
                     <asp:BoundField DataField="SuplementExpiryDate" HeaderText="Expiry Date" SortExpression="SuplementExpiryDate" />
                     <asp:BoundField DataField="SuplementPrice" HeaderText="Price" SortExpression="SuplementPrice" />
-                    <asp:BoundField DataField="SuplementTypeID" HeaderText="Suplement Type ID" SortExpression="SuplementTypeID" />
+                    <asp:BoundField DataField="SuplementTypeName" HeaderText="Suplement Type" SortExpression="SuplementTypeID" />
                     <asp:ButtonField ButtonType="Button" CommandName="Edit" HeaderText="Actions" ShowHeader="True" Text="Update" />
                     <asp:ButtonField ButtonType="Button" CommandName="Delete" HeaderText="Actions" ShowHeader="True" Text="Delete" />
                 </Columns>
