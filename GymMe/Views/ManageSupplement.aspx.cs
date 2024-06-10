@@ -28,7 +28,8 @@ namespace GymMe.Views
                 }
                 else
                 {
-
+                    GridViewSup.DataSource = ProductRepository.GetSupplements();
+                    GridViewSup.DataBind();
                 }
             }
         }
@@ -41,6 +42,26 @@ namespace GymMe.Views
         protected void LinkButtonInsertSup_Click(object sender, EventArgs e)
         {
             Response.Redirect("InsertSupplement.aspx");
+        }
+
+        protected void GridViewSup_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = GridViewSup.Rows[e.RowIndex];
+            int id = Convert.ToInt32(row.Cells[0].Text);
+            ProductRepository.DeleteSupplement(id);
+            Response.Redirect("ManageSupplement.aspx");
+        }
+
+        protected void GridViewSup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridViewSup_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridViewRow row = GridViewSup.Rows[e.NewEditIndex];
+            string id = row.Cells[0].Text;
+            Response.Redirect("UpdateSupplement.aspx?ID=" + id);
         }
     }
 }
