@@ -10,13 +10,13 @@
     <form id="form1" runat="server">
         <div>
             <asp:Panel ID="CustomerChoice" runat="server" Visible="false">
-                <asp:LinkButton ID="LinkButtonOrderSup" runat="server" OnClick="LinkButtonOrderSup_Click">Order Supplement</asp:LinkButton>
+                <asp:LinkButton ID="LinkButtonOrderSup" runat="server" OnClick="LinkButtonOrderSup_Click">Order Supplement </asp:LinkButton>
                 <asp:Label ID="Label2" runat="server" Text="History"></asp:Label>
             </asp:Panel>
 
             <asp:Panel ID="AdminChoice" runat="server" Visible="false">
-                <asp:LinkButton ID="LinkButtonHome" runat="server" OnClick="LinkButtonHome_Click">Home</asp:LinkButton>
-                <asp:LinkButton ID="LinkButtonManageSup" runat="server" OnClick="LinkButtonManageSup_Click">Manage Supplement</asp:LinkButton>
+                <asp:LinkButton ID="LinkButtonHome" runat="server" OnClick="LinkButtonHome_Click">Home </asp:LinkButton>
+                <asp:LinkButton ID="LinkButtonManageSup" runat="server" OnClick="LinkButtonManageSup_Click">Manage Supplement </asp:LinkButton>
                 <asp:Label ID="Label7" runat="server" Text="Order Queue"></asp:Label> 
                 <asp:Label ID="Label9" runat="server" Text="Transaction Report"></asp:Label>
             </asp:Panel>
