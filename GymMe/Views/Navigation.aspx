@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:Panel ID="CustomerChoice" runat="server" Visible="false">
-                <asp:Label ID="Label1" runat="server" Text="Order Suplement"></asp:Label>
+                <asp:LinkButton ID="LinkButtonOrderSup" runat="server" OnClick="LinkButtonOrderSup_Click">Order Supplement</asp:LinkButton>
                 <asp:Label ID="Label2" runat="server" Text="History"></asp:Label>
             </asp:Panel>
 

@@ -11,7 +11,7 @@ namespace GymMe.Views
 {
 
 
-    public partial class Navigation
+    public partial class OrderSupplement
     {
 
         /// <summary>
@@ -24,93 +24,93 @@ namespace GymMe.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CustomerChoice control.
+        /// LinkButtonNav control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel CustomerChoice;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonNav;
 
         /// <summary>
-        /// LinkButtonOrderSup control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonOrderSup;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Label2 control.
+        /// GridViewSupplement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.GridView GridViewSupplement;
 
         /// <summary>
-        /// AdminChoice control.
+        /// LabelSupplement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel AdminChoice;
+        protected global::System.Web.UI.WebControls.Label LabelSupplement;
 
         /// <summary>
-        /// LinkButtonHome control.
+        /// DropDownListSupName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonHome;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListSupName;
 
         /// <summary>
-        /// LinkButtonManageSup control.
+        /// LabelQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonManageSup;
+        protected global::System.Web.UI.WebControls.Label LabelQuantity;
 
         /// <summary>
-        /// Label7 control.
+        /// TextBoxQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxQuantity;
 
         /// <summary>
-        /// Label9 control.
+        /// LabelQuantityError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected global::System.Web.UI.WebControls.Label LabelQuantityError;
 
         /// <summary>
-        /// LinkButtonProfile control.
+        /// ButtonOrder control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonProfile;
+        protected global::System.Web.UI.WebControls.Button ButtonOrder;
 
         /// <summary>
-        /// LinkButtonLogout control.
+        /// LinkButtonCart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonLogout;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonCart;
     }
 }

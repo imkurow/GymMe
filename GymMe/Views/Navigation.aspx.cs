@@ -56,5 +56,10 @@ namespace GymMe.Views
         {
             Response.Redirect("ManageSupplement.aspx");
         }
+
+        protected void LinkButtonOrderSup_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("OrderSupplement.aspx");
+        }
     }
 }

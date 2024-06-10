@@ -17,5 +17,23 @@ namespace GymMe.Factories
             newSup.SuplementTypeID = typeId;
             return newSup;
         }
+
+        public static MsCart CreateCart(int userId, int suppId, int quantity)
+        {
+            MsCart newCart = new MsCart();
+            newCart.UserID = userId;
+            newCart.SuplementID = suppId;
+            newCart.Quantity = quantity;
+            return newCart;
+        }
+
+        public static TransactionHeader CreateTransactionHeader(int userID)
+        {
+            TransactionHeader newTrans = new TransactionHeader();
+            newTrans.UserID = userID;
+            newTrans.Status = "Unhandled";
+            newTrans.TransactionDate = DateTime.Now;
+            return newTrans;
+        }
     }
 }
