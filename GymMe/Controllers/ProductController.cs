@@ -37,5 +37,17 @@ namespace GymMe.Controllers
                 return false;
             }
         }
+
+        public static bool isValidQuantity(int quantity)
+        {
+            if (quantity > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
