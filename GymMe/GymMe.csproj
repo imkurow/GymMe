@@ -96,6 +96,7 @@
     <Content Include="Views\Navigation.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
+    <Content Include="Views\UpdateSupplement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +189,13 @@
     </Compile>
     <Compile Include="Views\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateSupplement.aspx.cs">
+      <DependentUpon>UpdateSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateSupplement.aspx.designer.cs">
+      <DependentUpon>UpdateSupplement.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
