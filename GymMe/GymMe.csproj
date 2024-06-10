@@ -89,11 +89,13 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Cart.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\InsertSupplement.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageSupplement.aspx" />
     <Content Include="Views\Navigation.aspx" />
+    <Content Include="Views\OrderSupplement.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\UpdateSupplement.aspx" />
@@ -141,6 +143,13 @@
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Views\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -175,6 +184,13 @@
     </Compile>
     <Compile Include="Views\Navigation.aspx.designer.cs">
       <DependentUpon>Navigation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderSupplement.aspx.cs">
+      <DependentUpon>OrderSupplement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderSupplement.aspx.designer.cs">
+      <DependentUpon>OrderSupplement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
