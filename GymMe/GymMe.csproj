@@ -90,6 +90,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Cart.aspx" />
+    <Content Include="Views\History.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\InsertSupplement.aspx" />
     <Content Include="Views\Login.aspx" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="Views\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\History.aspx.cs">
+      <DependentUpon>History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\History.aspx.designer.cs">
+      <DependentUpon>History.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
