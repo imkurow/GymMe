@@ -42,15 +42,6 @@ namespace GymMe.Views
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonOrderSup;
 
         /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
         /// AdminChoice control.
         /// </summary>
         /// <remarks>
@@ -94,6 +85,15 @@ namespace GymMe.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label9;
+
+        /// <summary>
+        /// LinkButtonHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonHistory;
 
         /// <summary>
         /// LinkButtonProfile control.
