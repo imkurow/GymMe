@@ -8,13 +8,13 @@ namespace GymMe.Repositories
 {
     public class DatabaseSingleton
     {
-        private static DatabaseEntities1 db = null;
+        private static DatabaseEntities2 db = null;
         
-        public static DatabaseEntities1 GetInstance()
+        public static DatabaseEntities2 GetInstance()
         {
             if (db == null)
             {
-                db = new DatabaseEntities1();
+                db = new DatabaseEntities2();
             }
             return db;
         }
