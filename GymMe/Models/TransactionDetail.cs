@@ -14,8 +14,9 @@ namespace GymMe.Models
     
     public partial class TransactionDetail
     {
-        public int TransactionID { get; set; }
+        public int TransactionDetailID { get; set; }
         public int SuplementID { get; set; }
+        public int TransactionID { get; set; }
         public int Quantity { get; set; }
     
         public virtual MsSuplement MsSuplement { get; set; }
