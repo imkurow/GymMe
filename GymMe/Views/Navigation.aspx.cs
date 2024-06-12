@@ -61,5 +61,10 @@ namespace GymMe.Views
         {
             Response.Redirect("OrderSupplement.aspx");
         }
+
+        protected void LinkButtonHistory_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("History.aspx");
+        }
     }
 }

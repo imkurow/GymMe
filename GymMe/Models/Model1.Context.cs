@@ -13,10 +13,10 @@ namespace GymMe.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DatabaseEntities1 : DbContext
+    public partial class DatabaseEntities2 : DbContext
     {
-        public DatabaseEntities1()
-            : base("name=DatabaseEntities1")
+        public DatabaseEntities2()
+            : base("name=DatabaseEntities2")
         {
         }
     
@@ -29,7 +29,7 @@ namespace GymMe.Models
         public virtual DbSet<MsSuplement> MsSuplements { get; set; }
         public virtual DbSet<MsSuplementType> MsSuplementTypes { get; set; }
         public virtual DbSet<MsUser> MsUsers { get; set; }
-        public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
+        public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
     }
 }

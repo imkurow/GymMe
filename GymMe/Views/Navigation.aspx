@@ -11,7 +11,6 @@
         <div>
             <asp:Panel ID="CustomerChoice" runat="server" Visible="false">
                 <asp:LinkButton ID="LinkButtonOrderSup" runat="server" OnClick="LinkButtonOrderSup_Click">Order Supplement </asp:LinkButton>
-                <asp:Label ID="Label2" runat="server" Text="History"></asp:Label>
             </asp:Panel>
 
             <asp:Panel ID="AdminChoice" runat="server" Visible="false">
@@ -20,6 +19,7 @@
                 <asp:Label ID="Label7" runat="server" Text="Order Queue"></asp:Label> 
                 <asp:Label ID="Label9" runat="server" Text="Transaction Report"></asp:Label>
             </asp:Panel>
+            <asp:LinkButton ID="LinkButtonHistory" runat="server" OnClick="LinkButtonHistory_Click">History </asp:LinkButton>
             <asp:LinkButton ID="LinkButtonProfile" runat="server" OnClick="LinkButtonProfile_Click">Profile </asp:LinkButton>
             <asp:LinkButton ID="LinkButtonLogout" runat="server" OnClick="LinkButtonLogout_Click">Logout</asp:LinkButton>
         </div>

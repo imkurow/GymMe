@@ -43,23 +43,20 @@
           <Property Name="UserRole" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\GYMME\APP_DATA\DATABASE.MDF.dbo.TransactionDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TransactionDetail">
           <Key>
-            <PropertyRef Name="TransactionID" />
-            <PropertyRef Name="SuplementID" />
-            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="TransactionDetailID" />
           </Key>
-          <Property Name="TransactionID" Type="int" Nullable="false" />
+          <Property Name="TransactionDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SuplementID" Type="int" Nullable="false" />
+          <Property Name="TransactionID" Type="int" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TransactionHeader">
           <Key>
             <PropertyRef Name="TransactionID" />
           </Key>
-          <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TransactionID" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="TransactionDate" Type="date" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
@@ -112,6 +109,18 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TransactionDetail_ToTransactionHeader">
+          <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
+          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionHeader">
+              <PropertyRef Name="TransactionID" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="TransactionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_TransactionHeader_ToMsUser">
           <End Role="MsUser" Type="Self.MsUser" Multiplicity="1" />
           <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="*" />
@@ -124,31 +133,13 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransactionHeader_ToTransactionHeader">
-          <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
-          <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TransactionHeader">
-              <PropertyRef Name="TransactionID" />
-            </Principal>
-            <Dependent Role="TransactionDetail">
-              <PropertyRef Name="TransactionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DatabaseModelStoreContainer">
           <EntitySet Name="MsCart" EntityType="Self.MsCart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsSuplement" EntityType="Self.MsSuplement" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsSuplementType" EntityType="Self.MsSuplementType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MsUser" EntityType="Self.MsUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransactionHeader" EntityType="Self.TransactionHeader" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TransactionDetail" EntityType="Self.TransactionDetail" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TransactionDetail].[TransactionID] AS [TransactionID], 
-    [TransactionDetail].[SuplementID] AS [SuplementID], 
-    [TransactionDetail].[Quantity] AS [Quantity]
-    FROM [dbo].[TransactionDetail] AS [TransactionDetail]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_MsCart_ToMsSuplement" Association="Self.FK_MsCart_ToMsSuplement">
             <End Role="MsSuplement" EntitySet="MsSuplement" />
             <End Role="MsCart" EntitySet="MsCart" />
@@ -165,13 +156,13 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
             <End Role="MsSuplement" EntitySet="MsSuplement" />
             <End Role="TransactionDetail" EntitySet="TransactionDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetail_ToTransactionHeader" Association="Self.FK_TransactionDetail_ToTransactionHeader">
+            <End Role="TransactionHeader" EntitySet="TransactionHeader" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
+          </AssociationSet>
           <AssociationSet Name="FK_TransactionHeader_ToMsUser" Association="Self.FK_TransactionHeader_ToMsUser">
             <End Role="MsUser" EntitySet="MsUser" />
             <End Role="TransactionHeader" EntitySet="TransactionHeader" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransactionHeader_ToTransactionHeader" Association="Self.FK_TransactionHeader_ToTransactionHeader">
-            <End Role="TransactionHeader" EntitySet="TransactionHeader" />
-            <End Role="TransactionDetail" EntitySet="TransactionDetail" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -225,28 +216,27 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
           <NavigationProperty Name="MsCarts" Relationship="Self.FK_MsCart_ToMsUser" FromRole="MsUser" ToRole="MsCart" />
           <NavigationProperty Name="TransactionHeaders" Relationship="Self.FK_TransactionHeader_ToMsUser" FromRole="MsUser" ToRole="TransactionHeader" />
         </EntityType>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="TransactionDetailID" />
+          </Key>
+          <Property Name="TransactionDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SuplementID" Type="Int32" Nullable="false" />
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MsSuplement" Relationship="Self.FK_TransactionDetail_ToMsSuplement" FromRole="TransactionDetail" ToRole="MsSuplement" />
+          <NavigationProperty Name="TransactionHeader" Relationship="Self.FK_TransactionDetail_ToTransactionHeader" FromRole="TransactionDetail" ToRole="TransactionHeader" />
+        </EntityType>
         <EntityType Name="TransactionHeader">
           <Key>
             <PropertyRef Name="TransactionID" />
           </Key>
-          <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="MsUser" Relationship="Self.FK_TransactionHeader_ToMsUser" FromRole="TransactionHeader" ToRole="MsUser" />
-          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionHeader_ToTransactionHeader" FromRole="TransactionHeader" ToRole="TransactionDetail" />
-        </EntityType>
-        <EntityType Name="TransactionDetail">
-          <Key>
-            <PropertyRef Name="TransactionID" />
-            <PropertyRef Name="SuplementID" />
-            <PropertyRef Name="Quantity" />
-          </Key>
-          <Property Name="TransactionID" Type="Int32" Nullable="false" />
-          <Property Name="SuplementID" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="MsSuplement" Relationship="Self.FK_TransactionDetail_ToMsSuplement" FromRole="TransactionDetail" ToRole="MsSuplement" />
-          <NavigationProperty Name="TransactionHeader" Relationship="Self.FK_TransactionHeader_ToTransactionHeader" FromRole="TransactionDetail" ToRole="TransactionHeader" />
+          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetail_ToTransactionHeader" FromRole="TransactionHeader" ToRole="TransactionDetail" />
         </EntityType>
         <Association Name="FK_MsCart_ToMsSuplement">
           <End Role="MsSuplement" Type="Self.MsSuplement" Multiplicity="1" />
@@ -308,7 +298,7 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransactionHeader_ToTransactionHeader">
+        <Association Name="FK_TransactionDetail_ToTransactionHeader">
           <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
           <End Role="TransactionDetail" Type="Self.TransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -320,13 +310,13 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DatabaseEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MsCarts" EntityType="Self.MsCart" />
           <EntitySet Name="MsSuplements" EntityType="Self.MsSuplement" />
           <EntitySet Name="MsSuplementTypes" EntityType="Self.MsSuplementType" />
           <EntitySet Name="MsUsers" EntityType="Self.MsUser" />
-          <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeader" />
           <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
+          <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeader" />
           <AssociationSet Name="FK_MsCart_ToMsSuplement" Association="Self.FK_MsCart_ToMsSuplement">
             <End Role="MsSuplement" EntitySet="MsSuplements" />
             <End Role="MsCart" EntitySet="MsCarts" />
@@ -347,7 +337,7 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
             <End Role="MsUser" EntitySet="MsUsers" />
             <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
           </AssociationSet>
-          <AssociationSet Name="FK_TransactionHeader_ToTransactionHeader" Association="Self.FK_TransactionHeader_ToTransactionHeader">
+          <AssociationSet Name="FK_TransactionDetail_ToTransactionHeader" Association="Self.FK_TransactionDetail_ToTransactionHeader">
             <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
             <End Role="TransactionDetail" EntitySet="TransactionDetails" />
           </AssociationSet>
@@ -357,7 +347,7 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities1">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities2">
           <EntitySetMapping Name="MsCarts">
             <EntityTypeMapping TypeName="DatabaseModel.MsCart">
               <MappingFragment StoreEntitySet="MsCart">
@@ -400,6 +390,16 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="DatabaseModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetail">
+                <ScalarProperty Name="TransactionDetailID" ColumnName="TransactionDetailID" />
+                <ScalarProperty Name="SuplementID" ColumnName="SuplementID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TransactionHeaders">
             <EntityTypeMapping TypeName="DatabaseModel.TransactionHeader">
               <MappingFragment StoreEntitySet="TransactionHeader">
@@ -407,15 +407,6 @@ warning 6002: The table/view 'C:\USERS\ANDREAN\DOCUMENTS\PROJECT\PROJECT\GYMME\G
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TransactionDetails">
-            <EntityTypeMapping TypeName="DatabaseModel.TransactionDetail">
-              <MappingFragment StoreEntitySet="TransactionDetail">
-                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
-                <ScalarProperty Name="SuplementID" ColumnName="SuplementID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
