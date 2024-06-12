@@ -25,14 +25,31 @@ namespace GymMe.Views
                     if (role == "Admin")
                     {
                         AdminChoice.Visible = true;
+                        GridViewAdmin.DataSource = ProductRepository.HistoryAdmins();
+                        GridViewAdmin.DataBind();
                     }
                     else if (role == "Customer")
                     {
                         CustomerChoice.Visible = true;
+                        int userID = Convert.ToInt32(id);
+                        GridViewCustomer.DataSource = ProductRepository.HistoryCustomers(userID);
+                        GridViewCustomer.DataBind();
                     }
 
                 }
             }
+        }
+        protected void GridViewCustomer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridView gridView = (GridView)sender;
+            int selectedIndex = gridView.SelectedIndex;
+            string transID = gridView.Rows[selectedIndex].Cells[0].Text;
+            Response.Redirect("TransactionDetail.aspx?transID=" + transID);
+        }
+
+        protected void LinkButtonNav_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Navigation.aspx");
         }
     }
 }
