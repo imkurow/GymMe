@@ -69,13 +69,13 @@ namespace GymMe.Views
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonManageSup;
 
         /// <summary>
-        /// Label7 control.
+        /// LinkButtonTransactionQueue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonTransactionQueue;
 
         /// <summary>
         /// Label9 control.

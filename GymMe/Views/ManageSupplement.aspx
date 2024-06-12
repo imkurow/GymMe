@@ -26,9 +26,6 @@
         <div>
             <asp:LinkButton ID="LinkButtonInsertSup" runat="server" OnClick="LinkButtonInsertSup_Click">Insert Supplement</asp:LinkButton>
         </div>
-        <div>
-            <asp:LinkButton ID="LinkButtonUpdateSup" runat="server">Update Supplement</asp:LinkButton>
-        </div>
     </form>
 </body>
 </html>
