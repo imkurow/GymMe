@@ -66,5 +66,10 @@ namespace GymMe.Views
         {
             Response.Redirect("History.aspx");
         }
+
+        protected void LinkButtonTransactionQueue_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TransactionQueue.aspx");
+        }
     }
 }
