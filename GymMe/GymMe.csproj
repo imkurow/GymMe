@@ -100,6 +100,7 @@
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\TransactionDetail.aspx" />
+    <Content Include="Views\TransactionQueue.aspx" />
     <Content Include="Views\UpdateSupplement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -221,6 +222,13 @@
     </Compile>
     <Compile Include="Views\TransactionDetail.aspx.designer.cs">
       <DependentUpon>TransactionDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionQueue.aspx.cs">
+      <DependentUpon>TransactionQueue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionQueue.aspx.designer.cs">
+      <DependentUpon>TransactionQueue.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UpdateSupplement.aspx.cs">
       <DependentUpon>UpdateSupplement.aspx</DependentUpon>
