@@ -149,6 +149,38 @@ namespace GymMe.Repositories
             db.SaveChanges();
         }
 
+        public static List<dynamic> GetTransactionsQueue()
+        {
+            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
+            List<dynamic> transactions = (from th in db.TransactionHeaders
+                                          join td in db.TransactionDetails
+                                                                                    on th.TransactionID equals td.TransactionID
+                                          join s in db.MsSuplements
+                                                                                    on td.SuplementID equals s.SuplementID
+                                          join u in db.MsUsers
+                                                                                    on th.UserID equals u.UserID
+                                          where th.Status == "Unhandled"
+                                          select new
+                                          {
+                                              TransactionID = th.TransactionID,
+                                              UserName = u.UserName,
+                                              TransactionDate = th.TransactionDate,
+                                              TransactionStatus = th.Status,
+                                              SuplementName = s.SuplementName,
+                                              Quantity = td.Quantity,
+                                              SuplementPrice = s.SuplementPrice
+                                          }).ToList<dynamic>();
+            return transactions;
+        }
+
+        public static void HandleTransactionStatus(int transID)
+        {
+            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
+            TransactionHeader targetUser = (from th in db.TransactionHeaders where th.TransactionID == transID select th).FirstOrDefault();
+            targetUser.Status = "Handled";
+            db.SaveChanges();
+        }
+
         public static void CreateTransaction(TransactionHeader newTransaction)
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
