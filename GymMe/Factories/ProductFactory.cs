@@ -27,13 +27,23 @@ namespace GymMe.Factories
             return newCart;
         }
 
-        public static TransactionHeader CreateTransactionHeader(int userID)
+        public static TransactionHeader CreateTransactionHeader(int transID, int userID)
         {
             TransactionHeader newTrans = new TransactionHeader();
             newTrans.UserID = userID;
+            newTrans.TransactionID = transID;
             newTrans.Status = "Unhandled";
             newTrans.TransactionDate = DateTime.Now;
             return newTrans;
+        }
+
+        public static TransactionDetail CreateTransactionDetail(int transID, int suppID, int quantity)
+        {
+            TransactionDetail newTransDetail = new TransactionDetail();
+            newTransDetail.TransactionID = transID;
+            newTransDetail.SuplementID = suppID;
+            newTransDetail.Quantity = quantity;
+            return newTransDetail;
         }
     }
 }
