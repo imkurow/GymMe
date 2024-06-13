@@ -14,7 +14,7 @@ namespace GymMe.Views
         {
             if (!IsPostBack)
             {
-                if (Request.Cookies["user_cookie"] == null)
+                if (Request.Cookies["user_cookie"] == null && Session["user"] == null)
                 {
                     Response.Redirect("login.aspx");
                 }

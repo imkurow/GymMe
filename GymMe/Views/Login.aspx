@@ -22,7 +22,12 @@
          <div>
             <asp:Label ID="LabelPassowordError" runat="server" Text=""></asp:Label>
         </div>
+            <div>
+                Remember Me
+                <asp:CheckBox ID="CheckBoxRemember" runat="server" />
+            </div>
         <div>
+            Already have account? 
             <asp:LinkButton ID="LinkButtonRegister" runat="server" OnClick="LinkButtonRegister_Click">Register</asp:LinkButton>
         </div>
         <asp:Button ID="ButtonLogin" runat="server" Text="Login" OnClick="ButtonLogin_Click"/>

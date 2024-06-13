@@ -1,4 +1,5 @@
-﻿using GymMe.Controllers;
+﻿
+using GymMe.Controllers;
 using GymMe.Models;
 using GymMe.Repositories;
 using System;
@@ -29,6 +30,7 @@ namespace GymMe.Views
         {
             string username = TextBoxUsername.Text;
             string password = TextBoxPassword.Text;
+            bool rememberMe = CheckBoxRemember.Checked;
 
             int isvalid = 1;
 
@@ -58,10 +60,17 @@ namespace GymMe.Views
                 if (isExist)
                 {
                     MsUser user = UserRepository.GetUserByUsername(username);
-                    HttpCookie cookie = new HttpCookie("user_cookie");
-                    cookie.Value = user.UserID.ToString();
-                    cookie.Expires = DateTime.Now.AddHours(1);
-                    Response.Cookies.Add(cookie);
+                    if (rememberMe)
+                    {
+                        HttpCookie cookie = new HttpCookie("user_cookie");
+                        cookie.Value = user.UserID.ToString();
+                        cookie.Expires = DateTime.Now.AddHours(48);
+                        Response.Cookies.Add(cookie);
+                    }
+                    else
+                    {
+                        Session["user"] = user.UserID;
+                    }
                     Response.Redirect("navigation.aspx");
                 }
             }

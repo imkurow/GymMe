@@ -17,13 +17,21 @@ namespace GymMe.Views
         {
             if (!IsPostBack)
             {
-                if (Request.Cookies["user_cookie"] == null)
+                if (Request.Cookies["user_cookie"] == null && Session["user"] == null)
                 {
                     Response.Redirect("login.aspx");
                 }
                 else
                 {
-                    string id = Request.Cookies["user_cookie"].Value;
+                    string id = "";
+                    if (Request.Cookies["user_cookie"] != null)
+                    {
+                        id = Request.Cookies["user_cookie"].Value;
+                    }
+                    if (Session["user"] != null)                    
+                    {
+                        id = Session["user"].ToString();
+                    }
                     MsUser currentUser = UserRepository.GetUserById(id);
                     TextBoxUsername.Text = currentUser.UserName;
                     TextBoxEmail.Text = currentUser.UserEmail;

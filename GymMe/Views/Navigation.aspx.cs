@@ -12,13 +12,22 @@ namespace GymMe.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Cookies["user_cookie"] == null)
+            if (Request.Cookies["user_cookie"] == null && Session["user"] == null)
             {
                 Response.Redirect("login.aspx");
             }
             if (!IsPostBack)
             {
-                string id = Request.Cookies["user_cookie"].Value;
+                string id = "";
+                if (Session["user"] != null)
+                {
+                    id = Session["user"].ToString();
+                }
+                if (Request.Cookies["user_cookie"] != null)
+                {
+                    id = Request.Cookies["user_cookie"].Value;
+
+                }
                 string role = UserRepository.GetUserRole(id);
                 if (role == "Admin")
                 {
@@ -43,6 +52,11 @@ namespace GymMe.Views
                 HttpCookie userCookie = new HttpCookie("user_cookie");
                 userCookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(userCookie);
+            }
+            else
+            {
+                Session.Clear();
+                Session.Abandon();
             }
             Response.Redirect("login.aspx");
         }

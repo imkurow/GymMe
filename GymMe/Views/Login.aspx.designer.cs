@@ -78,6 +78,15 @@ namespace GymMe.Views
         protected global::System.Web.UI.WebControls.Label LabelPassowordError;
 
         /// <summary>
+        /// CheckBoxRemember control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CheckBoxRemember;
+
+        /// <summary>
         /// LinkButtonRegister control.
         /// </summary>
         /// <remarks>
