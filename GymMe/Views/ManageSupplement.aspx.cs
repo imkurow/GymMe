@@ -72,5 +72,10 @@ namespace GymMe.Views
             string id = row.Cells[0].Text;
             Response.Redirect("UpdateSupplement.aspx?ID=" + id);
         }
+
+        protected void LinkButtonInsertSupType_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InsertSupplementType.aspx");
+        }
     }
 }

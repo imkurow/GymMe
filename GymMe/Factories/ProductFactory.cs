@@ -27,6 +27,13 @@ namespace GymMe.Factories
             return newCart;
         }
 
+        public static MsSuplementType CreateSupplementType(string suppName) 
+        {
+            MsSuplementType newSup = new MsSuplementType();
+            newSup.SuplementTypeName = suppName;
+            return newSup;
+        }
+
         public static TransactionHeader CreateTransactionHeader(int transID, int userID)
         {
             TransactionHeader newTrans = new TransactionHeader();

@@ -25,6 +25,13 @@ namespace GymMe.Handler
             db.SaveChanges();
         }
 
+        public static void CreateType(MsSuplementType type)
+        {
+            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
+            db.MsSuplementTypes.Add(type);
+            db.SaveChanges();
+        }
+
         public static void CreateTransaction(TransactionHeader newTransaction)
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();

@@ -24,6 +24,8 @@
             </asp:GridView>
         </div>
         <div>
+            <asp:LinkButton ID="LinkButtonInsertSupType" runat="server" OnClick="LinkButtonInsertSupType_Click">Insert Supplement Type </asp:LinkButton>
+            <br/>
             <asp:LinkButton ID="LinkButtonInsertSup" runat="server" OnClick="LinkButtonInsertSup_Click">Insert Supplement</asp:LinkButton>
         </div>
     </form>

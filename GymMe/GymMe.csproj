@@ -1227,6 +1227,7 @@
     <Content Include="Views\History.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\InsertSupplement.aspx" />
+    <Content Include="Views\InsertSupplementType.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageSupplement.aspx" />
     <Content Include="Views\Navigation.aspx" />
@@ -1321,6 +1322,13 @@
     </Compile>
     <Compile Include="Views\InsertSupplement.aspx.designer.cs">
       <DependentUpon>InsertSupplement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertSupplementType.aspx.cs">
+      <DependentUpon>InsertSupplementType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertSupplementType.aspx.designer.cs">
+      <DependentUpon>InsertSupplementType.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

@@ -8,9 +8,6 @@
 </head>
 <body>
 <form id="form1" runat="server">
-        <div>
-            <asp:Label ID="Label1" runat="server" Text="Data"></asp:Label>
-        </div>
             <asp:Panel ID="CustomerChoice" runat="server" Visible="false">
                 Welcome to GymMe, 
                 <asp:Label ID="LabelName" runat="server" Text=""></asp:Label>

@@ -33,7 +33,7 @@ namespace GymMe.Views
                 if (role == "Admin")
                 {
                     AdminChoice.Visible = true;
-                    Label1.Text = "Welcome, " + Request.Cookies["user_cookie"].Value;
+            
                     List<MsUser> users = UserRepository.GetUsers();
                     GridViewCustomer.DataSource = users;
                     GridViewCustomer.DataBind();

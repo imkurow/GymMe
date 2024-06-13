@@ -11,7 +11,7 @@ namespace GymMe.Views
 {
 
 
-    public partial class ManageSupplement
+    public partial class InsertSupplementType
     {
 
         /// <summary>
@@ -24,39 +24,30 @@ namespace GymMe.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// LinkButtonNav control.
+        /// LabelType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonNav;
+        protected global::System.Web.UI.WebControls.Label LabelType;
 
         /// <summary>
-        /// GridViewSup control.
+        /// TextBoxType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewSup;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxType;
 
         /// <summary>
-        /// LinkButtonInsertSupType control.
+        /// ButtonCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonInsertSupType;
-
-        /// <summary>
-        /// LinkButtonInsertSup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonInsertSup;
+        protected global::System.Web.UI.WebControls.Button ButtonCreate;
     }
 }
