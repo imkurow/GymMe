@@ -1,5 +1,6 @@
 ﻿using GymMe.Controllers;
 using GymMe.Factories;
+using GymMe.Handler;
 using GymMe.Models;
 using GymMe.Repositories;
 using System;
@@ -92,7 +93,7 @@ namespace GymMe.Views
             if (isvalid == 1)
             {
                 MsUser newUser = UserFactory.createUser(username, email, password, gender, bod);
-                UserRepository.CreateUser(newUser);
+                UserHandler.CreateUser(newUser);
                 Response.Redirect("login.aspx");
             }
         }

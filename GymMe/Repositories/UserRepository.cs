@@ -9,13 +9,6 @@ namespace GymMe.Repositories
 {
     public class UserRepository
     {
-        public static void CreateUser(MsUser newUser)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-
-            db.MsUsers.Add(newUser);
-            db.SaveChanges();
-        }
 
         public static bool IsUnique(string username)
         {
@@ -92,30 +85,6 @@ namespace GymMe.Repositories
                            where us.UserID == idInt
                            select us).FirstOrDefault();
             return user.UserPassword;
-        }
-
-        public static void UpdateUserProfile(string id, string username, string email, string gender, DateTime bod)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            int idInt = Convert.ToInt32(id);
-            MsUser user = (from us in db.MsUsers
-                           where us.UserID == idInt
-                           select us).FirstOrDefault();
-            user.UserName = username;
-            user.UserEmail = email;
-            user.UserGender = gender;
-            user.UserDOB = bod;
-            db.SaveChanges();
-        }
-        public static void UpdateUserCredential(string id, string password)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            int idInt = Convert.ToInt32(id);
-            MsUser user = (from us in db.MsUsers
-                           where us.UserID == idInt
-                           select us).FirstOrDefault();
-            user.UserPassword = password;
-            db.SaveChanges();
         }
 
     }

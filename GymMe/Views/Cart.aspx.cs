@@ -1,4 +1,5 @@
-﻿using GymMe.Repositories;
+﻿using GymMe.Handler;
+using GymMe.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,14 +47,14 @@ namespace GymMe.Views
         protected void ButtonClearCart_Click(object sender, EventArgs e)
         {
             int userID = Convert.ToInt32(Request.Cookies["user_cookie"].Value);
-            ProductRepository.ClearCart(userID);
+            ProductHandler.ClearCart(userID);
             Response.Redirect("Cart.aspx");
         }
 
         protected void ButtonCheckout_Click(object sender, EventArgs e)
         {
             int userID = Convert.ToInt32(Request.Cookies["user_cookie"].Value);
-            ProductRepository.CheckoutOrder(userID);
+            ProductHandler.CheckoutOrder(userID);
             Response.Redirect("OrderSupplement.aspx");
         }
     }

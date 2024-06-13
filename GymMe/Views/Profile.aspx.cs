@@ -1,4 +1,5 @@
 ﻿using GymMe.Controllers;
+using GymMe.Handler;
 using GymMe.Models;
 using GymMe.Repositories;
 using System;
@@ -70,7 +71,7 @@ namespace GymMe.Views
             }
             if (isvalid == 1)
             {
-                UserRepository.UpdateUserCredential(id, password2);
+                UserHandler.UpdateUserCredential(id, password2);
                 HttpCookie userCookie = new HttpCookie("user_cookie");
                 userCookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(userCookie);
@@ -120,7 +121,7 @@ namespace GymMe.Views
             }
             if (isvalid == 1)
             {
-                UserRepository.UpdateUserProfile(id, username, email, gender, bod);
+                UserHandler.UpdateUserProfile(id, username, email, gender, bod);
                 Response.Redirect("navigation.aspx");
             }
         }
