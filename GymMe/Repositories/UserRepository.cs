@@ -61,6 +61,16 @@ namespace GymMe.Repositories
             return user;
         }
 
+        public static string GetUserName(string id)
+        {
+            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
+            int idInt = Convert.ToInt32(id);
+            MsUser user = (from us in db.MsUsers
+                           where us.UserID == idInt
+                           select us).FirstOrDefault();
+            return user.UserName;
+        }
+
         public static string GetUserRole(string id)
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
