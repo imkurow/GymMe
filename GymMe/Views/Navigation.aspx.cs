@@ -71,5 +71,15 @@ namespace GymMe.Views
         {
             Response.Redirect("TransactionQueue.aspx");
         }
+
+        protected void LinkButtonTransactionReport_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TransactionReport.aspx");
+        }
+
+        protected void LinkButtonTransactionReport_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("TransactionReport.aspx");
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using GymMe.Models;
+﻿using GymMe.Handler;
+using GymMe.Models;
 using GymMe.Repositories;
 using System;
 using System.Collections.Generic;
@@ -48,7 +49,7 @@ namespace GymMe.Views
         {
             GridViewRow row = GridViewSup.Rows[e.RowIndex];
             int id = Convert.ToInt32(row.Cells[0].Text);
-            ProductRepository.DeleteSupplement(id);
+            ProductHandler.DeleteSupplement(id);
             Response.Redirect("ManageSupplement.aspx");
         }
 

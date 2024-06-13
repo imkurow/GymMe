@@ -1,4 +1,5 @@
-﻿using GymMe.Repositories;
+﻿using GymMe.Handler;
+using GymMe.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace GymMe.Views
         protected void GridViewQueue_SelectedIndexChanged(object sender, EventArgs e)
         {
             int transID = Convert.ToInt32(GridViewQueue.SelectedRow.Cells[1].Text);
-            ProductRepository.HandleTransactionStatus(transID);
+            ProductHandler.HandleTransactionStatus(transID);
             Response.Redirect("TransactionQueue.aspx");
         }
 

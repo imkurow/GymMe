@@ -17,7 +17,7 @@
                 <asp:LinkButton ID="LinkButtonHome" runat="server" OnClick="LinkButtonHome_Click">Home </asp:LinkButton>
                 <asp:LinkButton ID="LinkButtonManageSup" runat="server" OnClick="LinkButtonManageSup_Click">Manage Supplement </asp:LinkButton>
                 <asp:LinkButton ID="LinkButtonTransactionQueue" runat="server" OnClick="LinkButtonTransactionQueue_Click">Transaction Queue </asp:LinkButton> 
-                <asp:Label ID="Label9" runat="server" Text="Transaction Report"></asp:Label>
+                <asp:LinkButton ID="LinkButtonTransactionReport" runat="server" OnClick="LinkButtonTransactionReport_Click1">Transaction Report</asp:LinkButton>
             </asp:Panel>
             <asp:LinkButton ID="LinkButtonHistory" runat="server" OnClick="LinkButtonHistory_Click">History </asp:LinkButton>
             <asp:LinkButton ID="LinkButtonProfile" runat="server" OnClick="LinkButtonProfile_Click">Profile </asp:LinkButton>

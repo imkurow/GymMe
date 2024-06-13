@@ -1,5 +1,6 @@
 ﻿using GymMe.Controllers;
 using GymMe.Factories;
+using GymMe.Handler;
 using GymMe.Models;
 using GymMe.Repositories;
 using System;
@@ -64,7 +65,7 @@ namespace GymMe.Views
             else
             {
                 MsCart newCart = ProductFactory.CreateCart(userID, supID, Quantity);
-                ProductRepository.InsertCart(newCart);
+                ProductHandler.InsertCart(newCart);
                 Response.Redirect("OrderSupplement.aspx");
             }
         }

@@ -1,5 +1,6 @@
 ﻿using GymMe.Controllers;
 using GymMe.Factories;
+using GymMe.Handler;
 using GymMe.Models;
 using GymMe.Repositories;
 using System;
@@ -81,7 +82,7 @@ namespace GymMe.Views
             {
                 int TypeId = ProductRepository.GetTypeId(type);
                 MsSuplement sup = ProductFactory.CreateSupplement(suppName, price, suppExpDate, TypeId);
-                ProductRepository.InsertSupplement(sup);
+                ProductHandler.InsertSupplement(sup);
                 Response.Redirect("ManageSupplement.aspx");
             }
         }

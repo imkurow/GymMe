@@ -1,5 +1,6 @@
 ﻿using GymMe.Controllers;
 using GymMe.Factories;
+using GymMe.Handler;
 using GymMe.Models;
 using GymMe.Repositories;
 using System;
@@ -83,7 +84,7 @@ namespace GymMe.Views
             if (isvalid == 1)
             {
                 int TypeId = ProductRepository.GetTypeId(type);
-                ProductRepository.UpdateSupplement(id, suppName, price, suppExpDate, typeID); 
+                ProductHandler.UpdateSupplement(id, suppName, price, suppExpDate, typeID); 
                 Response.Redirect("ManageSupplement.aspx");
             }
         }
