@@ -29,16 +29,20 @@ namespace GymMe.Views
                     id = Session["user"].ToString();
                 }
                 string role = UserRepository.GetUserRole(id);
+                string name = UserRepository.GetUserName(id);
                 if (role == "Admin")
                 {
+                    AdminChoice.Visible = true;
                     Label1.Text = "Welcome, " + Request.Cookies["user_cookie"].Value;
                     List<MsUser> users = UserRepository.GetUsers();
                     GridViewCustomer.DataSource = users;
                     GridViewCustomer.DataBind();
                 }
-                else
+                if (role == "Customer")
                 {
-                    Response.Redirect("navigation.aspx");
+                    CustomerChoice.Visible = true;
+                    LabelRole.Text = role;
+                    LabelName.Text = name;
                 }
             }
         }

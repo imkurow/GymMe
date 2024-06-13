@@ -11,6 +11,16 @@
         <div>
             <asp:Label ID="Label1" runat="server" Text="Data"></asp:Label>
         </div>
+            <asp:Panel ID="CustomerChoice" runat="server" Visible="false">
+                Welcome to GymMe, 
+                <asp:Label ID="LabelName" runat="server" Text=""></asp:Label>
+                <div>
+                Role: 
+                <asp:Label ID="LabelRole" runat="server" Text=""></asp:Label>
+
+                </div>
+            </asp:Panel>
+    <asp:Panel ID="AdminChoice" runat="server">
         <asp:GridView ID="GridViewCustomer" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="UserName" HeaderText="Name" SortExpression="UserName" />
@@ -20,6 +30,7 @@
             </Columns>
 
         </asp:GridView>
+    </asp:Panel>
         <asp:LinkButton ID="LinkButtonNav" runat="server" OnClick="LinkButtonNav_Click">Nav</asp:LinkButton>
     </form>
 </body>

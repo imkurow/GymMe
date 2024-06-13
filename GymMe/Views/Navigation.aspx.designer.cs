@@ -51,15 +51,6 @@ namespace GymMe.Views
         protected global::System.Web.UI.WebControls.Panel AdminChoice;
 
         /// <summary>
-        /// LinkButtonHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButtonHome;
-
-        /// <summary>
         /// LinkButtonManageSup control.
         /// </summary>
         /// <remarks>
@@ -85,6 +76,15 @@ namespace GymMe.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonTransactionReport;
+
+        /// <summary>
+        /// LinkButtonHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonHome;
 
         /// <summary>
         /// LinkButtonHistory control.
