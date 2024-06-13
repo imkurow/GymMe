@@ -1,4 +1,5 @@
-﻿using GymMe.Factories;
+﻿using GymMe.Dataset;
+using GymMe.Factories;
 using GymMe.Models;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,42 @@ namespace GymMe.Repositories
             return historyDetails;
         }
 
+        public static DataSet GetReports()
+        {
+            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
+            List<TransactionHeader> trans = (from t in db.TransactionHeaders select t).ToList();
+            DataSet data = new DataSet();
+            var header = data.TransactionHeader;
+            var detailTable =data.TransactionDetail;
+            var suplementTable = data.MsSuplement;
+
+            foreach (TransactionHeader t in trans)
+            {
+                var hrow = header.NewRow();
+                hrow["TransactionID"] = t.TransactionID;
+                hrow["UserID"] = t.UserID;
+                hrow["TransactionDate"] = t.TransactionDate;
+                hrow["Status"] = t.Status;
+                header.Rows.Add(hrow);
+
+                foreach (TransactionDetail td in t.TransactionDetails)
+                {
+                    var drow = detailTable.NewRow();
+                    drow["TransactionID"] = td.TransactionID;
+                    drow["SuplementID"] = td.SuplementID;
+                    drow["Quantity"] = td.Quantity;
+                    detailTable.Rows.Add(drow);
+
+                    var srow = suplementTable.NewRow();
+                    srow["SuplementID"] = td.SuplementID;
+                    srow["SuplementName"] = td.MsSuplement.SuplementName;
+                    srow["SuplementPrice"] = td.MsSuplement.SuplementPrice;
+                    suplementTable.Rows.Add(srow);
+                }
+            }
+            return data;
+        }
+
         public static List <dynamic> GetTransactionsDetails(int transID)
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
@@ -113,42 +150,6 @@ namespace GymMe.Repositories
             return type;    
         }
 
-        public static void ClearCart(int userID)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            List<MsCart> carts = (from c in db.MsCarts where c.UserID == userID select c).ToList();
-            foreach (MsCart cart in carts)
-            {
-                db.MsCarts.Remove(cart);
-            }
-            db.SaveChanges();
-        }
-
-        public static void CheckoutOrder(int userID)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            List<MsCart> carts = (from c in db.MsCarts where c.UserID == userID select c).ToList();
-            foreach (MsCart cart in carts)
-            {
-                int id = Convert.ToInt32(cart.UserID);
-                int transID = generateTransactionID();
-                TransactionHeader newTrans = ProductFactory.CreateTransactionHeader(transID, userID);
-                TransactionDetail newTransDetail = ProductFactory.CreateTransactionDetail(transID, cart.SuplementID, cart.Quantity);
-                CreateTransaction(newTrans);
-                RecordTransaction(newTransDetail);
-                db.MsCarts.Remove(cart);
-
-            }
-            db.SaveChanges();
-        }
-
-        public static void RecordTransaction(TransactionDetail newTrans)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            db.TransactionDetails.Add(newTrans);
-            db.SaveChanges();
-        }
-
         public static List<dynamic> GetTransactionsQueue()
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
@@ -173,33 +174,11 @@ namespace GymMe.Repositories
             return transactions;
         }
 
-        public static void HandleTransactionStatus(int transID)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            TransactionHeader targetUser = (from th in db.TransactionHeaders where th.TransactionID == transID select th).FirstOrDefault();
-            targetUser.Status = "Handled";
-            db.SaveChanges();
-        }
-
-        public static void CreateTransaction(TransactionHeader newTransaction)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            db.TransactionHeaders.Add(newTransaction);
-            db.SaveChanges();
-        }
-
         public static int GetTypeId(string typeName)
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
             int id = (from type in db.MsSuplementTypes where type.SuplementTypeName == typeName select type.SuplementTypeID).FirstOrDefault();
             return id;
-        }
-
-        public static void InsertSupplement(MsSuplement newSup)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            db.MsSuplements.Add(newSup);
-            db.SaveChanges();
         }
 
         public static int generateTransactionID()
@@ -209,17 +188,6 @@ namespace GymMe.Repositories
             int id = maxTransactionId.HasValue ? maxTransactionId.Value + 1 : 1;
             return id;
 
-        }
-
-        public static void UpdateSupplement(int supId, string supName, int supPrice, DateTime supExpiry, int supTypeID)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            MsSuplement sup = (from s in db.MsSuplements where s.SuplementID == supId select s).FirstOrDefault();
-            sup.SuplementName = supName;
-            sup.SuplementPrice = supPrice;
-            sup.SuplementExpiryDate = supExpiry;
-            sup.SuplementTypeID = supTypeID;
-            db.SaveChanges();
         }
 
         public static MsSuplement GetSupplement(int id)
@@ -234,13 +202,6 @@ namespace GymMe.Repositories
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
             int id = (from s in db.MsSuplements where s.SuplementName == supplementName select s.SuplementID).FirstOrDefault();
             return id;
-        }
-
-        public static void InsertCart(MsCart newCart)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            db.MsCarts.Add(newCart);
-            db.SaveChanges();
         }   
 
         public static List<string> GetSupplementNames()
@@ -248,14 +209,6 @@ namespace GymMe.Repositories
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
             List<string> names = (from s in db.MsSuplements select s.SuplementName).ToList();
             return names;
-        }
-
-        public static void DeleteSupplement(int id)
-        {
-            DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            MsSuplement sup = (from s in db.MsSuplements where s.SuplementID == id select s).FirstOrDefault();
-            db.MsSuplements.Remove(sup);
-            db.SaveChanges();
         }
     }
 }
