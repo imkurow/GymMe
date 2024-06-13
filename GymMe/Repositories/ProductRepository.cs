@@ -143,10 +143,12 @@ namespace GymMe.Repositories
             return types;
         }
 
-        public static string GetSupplementType(int id)
+        public static string GetSupplementType(int SupID)
         {
             DatabaseEntities2 db = DatabaseSingleton.GetInstance();
-            string type = (from t in db.MsSuplementTypes where t.SuplementTypeID == id select t.SuplementTypeName).FirstOrDefault();
+            string type = (from t in db.MsSuplementTypes 
+                           join s in db.MsSuplements on t.SuplementTypeID equals s.SuplementTypeID
+                           where s.SuplementID == SupID select t.SuplementTypeName).FirstOrDefault();
             return type;    
         }
 
