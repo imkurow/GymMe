@@ -55,7 +55,7 @@ GymMe is a comprehensive ASP.NET web application for an online health supplement
 4. Configure database connection
 5. Run the application
 
-## Requirements
+## BUILDED WITH 
 
 - Visual Studio 2022
 - .NET Core SDK
